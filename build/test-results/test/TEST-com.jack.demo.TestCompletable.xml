@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.jack.demo.TestCompletable" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-17T02:38:48" hostname="JasondeMacBook-Pro.local" time="0.06">
+  <properties/>
+  <testcase name="test()" classname="com.jack.demo.TestCompletable" time="0.06"/>
+  <system-out><![CDATA[0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
