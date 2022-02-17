@@ -11,6 +11,7 @@ public class TestCompletable {
     public void test() {
         Completable.create(emitter -> emitter.onComplete()).andThen(Observable.range(0, 10))
                 .subscribe(intValue -> System.out.println(intValue));
+        System.out.println("maybeTest1");
     }
 
     @Test
