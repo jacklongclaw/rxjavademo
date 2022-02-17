@@ -21,6 +21,7 @@ public class TestCompletable {
             emitter.onSuccess("hello kitty");
 
         }).subscribe(s -> System.out.println("---------------------" + s));
+        System.out.println(2);
     }
 
     @Test
