@@ -11,7 +11,7 @@ public class TestCompletable {
     public void test() {
         Completable.create(emitter -> emitter.onComplete()).andThen(Observable.range(0, 10))
                 .subscribe(intValue -> System.out.println(intValue));
-        System.out.println("maybeTest1");
+        System.out.println("test-maybe1");
     }
 
     @Test
@@ -19,9 +19,8 @@ public class TestCompletable {
         Maybe.create(emitter -> {
             emitter.onSuccess("hello world");
             emitter.onSuccess("hello kitty");
-
         }).subscribe(s -> System.out.println("---------------------" + s));
-        System.out.println(2);
+        System.out.println("test-maybe2");
     }
 
     @Test
