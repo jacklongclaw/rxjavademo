@@ -18,6 +18,7 @@ public class TestCompletable {
         Maybe.create(emitter -> {
             emitter.onSuccess("hello world");
             emitter.onSuccess("hello kitty");
+
         }).subscribe(s -> System.out.println("---------------------" + s));
     }
 
