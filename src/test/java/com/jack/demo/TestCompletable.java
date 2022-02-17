@@ -36,4 +36,12 @@ public class TestCompletable {
         //Maybe.subscribe(Consumer<? super T> onSuccess, Consumer<? super Throwable> onError,Action onComplete)
         //只要emitter调用了onError方法，那么订阅后将执行Maybe的onError,如果有元素发送了，那么订阅后将调用Maybe的onSuccess，并能获得元素，如果没有发送，那么订阅后将执行Maybe的onComplete
     }
+
+    @Test
+    public void testMaybeOnComplete(){
+        Maybe.create(emitter ->  {
+            emitter.onComplete();
+            emitter.onSuccess("hello world");
+        }).subscribe(msg -> System.out.println(msg));
+    }
 }
