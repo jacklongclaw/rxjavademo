@@ -17,6 +17,7 @@ public class TestTimer {
             System.out.println(String.format("delay %s  hello timer",delaySec));
         });
         TimeUnit.SECONDS.sleep(3);
+
         Assert.assertEquals(delaySec,calculateTime.get());
     }
 
