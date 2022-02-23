@@ -5,6 +5,8 @@ import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 public class TestCompletable {
 
     @Test
@@ -38,10 +40,27 @@ public class TestCompletable {
     }
 
     @Test
-    public void testMaybeOnComplete(){
-        Maybe.create(emitter ->  {
+    public void testMaybeOnComplete() {
+        Maybe.create(emitter -> {
             emitter.onComplete();
             emitter.onSuccess("hello kitty");
         }).subscribe(msg -> System.out.println(msg));
+    }
+
+    @Test
+    public void testCreate() {
+        Observable.create(emitter -> {
+            //Rxjava 建议我们在传递给create方法的函数时，先检查一下观察者的isDisposed状态
+            try {
+                if (!emitter.isDisposed()) {
+                    IntStream.range(0, 10).forEach(emitter::onNext);
+                }
+                emitter.onComplete();
+            } catch (Exception e) {
+                emitter.onError(e);
+            }
+        }).subscribe(intV -> System.out.println("next:" + intV),
+                throwable -> System.out.println("error:" + throwable),
+                () -> System.out.println("sequence complete"));
     }
 }

@@ -5,13 +5,13 @@ import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
+import rx.plugins.RxJavaPlugins;
 
 import java.util.concurrent.TimeUnit;
 
 public class CompletableDemo {
 
     public static void main(String[] args) {
-
         Completable.create(new CompletableOnSubscribe() {
             @Override
             public void subscribe(CompletableEmitter emitter) throws Exception {
