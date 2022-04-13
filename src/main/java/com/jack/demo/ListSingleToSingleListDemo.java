@@ -17,5 +17,10 @@ public class ListSingleToSingleListDemo {
           return studentObservable;
         }).toList();
 
+    List<Observable<Student>> observableStream = students.stream().map(student -> Observable.just(student)).toList();
+    Observable<Student> observableObservable =
+        Observable.fromIterable(observableStream).flatMap(observable -> observable);
+    Single<List<Student>> listSingle1 = observableObservable.toList();
+
   }
 }
