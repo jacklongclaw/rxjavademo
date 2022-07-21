@@ -13,8 +13,12 @@ public class Student {
     this.score = score;
   }
 
-  public static List<Student> students = List.of(new Student("zhangsan", 1, 10),
-      new Student("lisi", 1, 1000),
-      new Student("wangwu", 1, 100),
-      new Student("zhaoliu", 3, 100));
+  public static List<Student> getDefaultStudents() {
+    return List.of(
+        new Student("zhangsan", 1, 10),
+        new Student("lisi", 1, 1000),
+        new Student("wangwu", 1, 100),
+        new Student("zhaoliu", 3, 100)
+    );
+  }
 }
